@@ -8,12 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    // le foto di un utente sono associate solo a lui
-    // creo relazione uno a uno
-    public function picture() {
-      return $this->hasOne('App\UserPicture');
-    }
-
 
     use Notifiable;
 
@@ -43,4 +37,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // le foto di un utente sono associate solo a lui
+    // creo relazione uno a uno
+    public function picture() {
+      return $this->hasOne('App\UserPicture');
+    }
 }
